@@ -1,5 +1,6 @@
 package com.book_heaven.backend.role;
 
+import com.book_heaven.backend.enums.RoleEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

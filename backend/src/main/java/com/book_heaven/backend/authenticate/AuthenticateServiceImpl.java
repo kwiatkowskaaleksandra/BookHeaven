@@ -7,7 +7,7 @@ import com.book_heaven.backend.authenticate.dto.request.SignUpRequest;
 import com.book_heaven.backend.authenticate.dto.response.AuthResponse;
 import com.book_heaven.backend.authenticate.dto.response.AuthResponseWithTokens;
 import com.book_heaven.backend.role.Role;
-import com.book_heaven.backend.role.RoleEnum;
+import com.book_heaven.backend.enums.RoleEnum;
 import com.book_heaven.backend.role.RoleRepository;
 import com.book_heaven.backend.security.jwt.JwtUtils;
 import com.book_heaven.backend.refreshToken.RefreshTokenService;
@@ -100,7 +100,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         user.setActivity(true);
         //todo te role tez zeby nie byly na stale
 Set<String> roles = new HashSet<>();
-roles.add("USER");
+roles.add("mod");
         user.setRoles(assignRolesToUser(roles));
 
         log.info("New user created: {}", user);

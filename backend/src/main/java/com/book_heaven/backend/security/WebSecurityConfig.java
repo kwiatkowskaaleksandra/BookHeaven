@@ -62,15 +62,16 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity, JwtUtils jwtUtils) {
         httpSecurity.csrf(csrf ->
-                        csrf.ignoringRequestMatchers("/api/auth/signup", "/api/auth/login")
+                        csrf.ignoringRequestMatchers("/api/auth/signup", "/api/auth/login", "/api/google/books/**", "/api/book/**")
                                 .csrfTokenRepository(csrfTokenRepository()))
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/auth/signout").authenticated()
-                        .requestMatchers("/api/auth/**", "/error").permitAll()
+                        .requestMatchers("/api/auth/**", "/error", "/api/book/get/**","/api/google/books/**").permitAll()
                         .requestMatchers("/api/user/**").hasRole("USER")
+                        .requestMatchers("/api/book/manage/**").hasRole("MODERATOR")
                         .anyRequest().authenticated()
                 )
                 .headers(headers ->

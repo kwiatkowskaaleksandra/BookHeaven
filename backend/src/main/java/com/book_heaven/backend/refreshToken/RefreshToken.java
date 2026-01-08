@@ -23,11 +23,9 @@ public class RefreshToken {
     @JoinColumn(name = "userId", referencedColumnName = "id")
     private User user;
 
-    @UniqueElements
     @Nullable
     private String token;
 
-    @UniqueElements
     @Nullable
     private Instant expiredDate;
 }

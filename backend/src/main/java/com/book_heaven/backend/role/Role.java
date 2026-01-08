@@ -1,5 +1,6 @@
 package com.book_heaven.backend.role;
 
+import com.book_heaven.backend.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

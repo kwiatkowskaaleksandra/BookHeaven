@@ -1,4 +1,4 @@
-package com.book_heaven.backend.role;
+package com.book_heaven.backend.enums;
 
 public enum RoleEnum {
     ROLE_USER,
