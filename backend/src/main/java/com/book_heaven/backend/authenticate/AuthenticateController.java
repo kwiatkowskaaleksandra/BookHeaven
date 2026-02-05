@@ -7,13 +7,11 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -38,13 +36,14 @@ public class AuthenticateController {
                 .body(authResponse.authResponse());
     }
 
-    @PostMapping("/signout")
+    @PostMapping("/logout")
     public ResponseEntity<?> logout() {
-        String[] cookies = authenticateService.logout().stream()
-                .map(Object::toString)
-                .toArray(String[]::new);
-        return ResponseEntity.ok()
-                .header(HttpHeaders.SET_COOKIE, cookies)
-                .body(Map.of("message", "You've been signed out."));
+        List<ResponseCookie> cleanCookies = authenticateService.logout();
+
+        HttpHeaders httpHeaders = new HttpHeaders();
+        cleanCookies.forEach(c -> httpHeaders.add(HttpHeaders.SET_COOKIE, c.toString()));
+
+        return ResponseEntity.noContent().headers(httpHeaders).build();
     }
+
 }

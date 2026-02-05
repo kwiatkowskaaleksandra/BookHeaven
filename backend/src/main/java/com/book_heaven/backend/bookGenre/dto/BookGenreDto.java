@@ -1,4 +1,4 @@
-package com.book_heaven.backend.BookGenre.dto;
+package com.book_heaven.backend.bookGenre.dto;
 
 public record BookGenreDto(
         String code,

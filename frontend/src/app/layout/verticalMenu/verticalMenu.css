@@ -1,0 +1,166 @@
+.chevron::before {
+  border-style: solid;
+  border-width: 0.15em 0.15em 0 0;
+  content: "";
+  display: inline-block;
+  height: 0.35em;
+  left: 0.15em;
+  position: relative;
+  top: 0.3em;
+  vertical-align: top;
+  width: 0.35em;
+}
+
+.vertical {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 760vh;
+  transition: 0.3s;
+  width: 60px;
+  background: linear-gradient(92deg, #796952, #DDBF92);
+  color: white;
+}
+
+/* expanded */
+.vertical.expanded {
+  width: 150px;
+}
+
+.vertical.expanded .header h1 {
+  margin-left: 0;
+}
+
+.vertical.expanded .header .chevron {
+  margin-left: 0;
+}
+
+.vertical.expanded .header .chevron::before {
+  transform: rotate(-135deg);
+}
+
+.vertical.expanded .content .link .content .title {
+  max-width: 100px;
+}
+
+.vertical.expanded .content .link .content .icon {
+  margin-right: 3px;
+}
+
+.vertical.expanded .content .link .children .content {
+  padding-left: 30px;
+}
+
+/* header */
+.vertical .header {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 10px;
+
+  background: transparent;
+}
+
+.vertical .header h1 {
+  font-size: 20px;
+  color:#DDBF92;
+  flex: 1;
+  transition: 0.3s;
+  margin: 0 0 0 -100px;
+}
+
+.vertical .header .chevron {
+  color: #DDBF92;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: -25px;
+
+  padding: 10px;
+  min-width: 20px;
+  height: 20px;
+  display: block;
+  text-align: center;
+}
+
+.vertical .header .chevron::before {
+  transition: 0.3s;
+  transform: rotate(45deg);
+}
+
+.vertical .header .chevron:hover {
+  color: white;
+}
+
+/* content / link */
+.vertical .content .link .children .content {
+  background: transparent;
+  padding-left: 10px;
+}
+
+.vertical .content .link .children .content.active {
+  background: #191a27;
+}
+
+.vertical .content .link .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vertical .content .link .content:hover {
+  background: linear-gradient(92deg, #796952, #DDBF92);
+}
+
+.vertical .content .link .content:hover .title {
+  color: white;
+}
+
+.vertical .content .link .content:hover svg {
+  fill: white;
+}
+
+.vertical .content .link .content.active {
+  background: transparent;
+  background: linear-gradient(92deg, #796952, #DDBF92);
+}
+
+.vertical .content .link .content.active .title {
+  color: white;
+}
+
+.vertical .content .link .content .icon {
+  flex: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0;
+}
+
+.vertical .content .link .content .title {
+  flex: 1;
+  color: white;
+  transition: 0.3s;
+  max-width: 0;
+  overflow: hidden;
+}
+.vertical .header {
+  position: relative;
+}
+
+.vertical .header .toggle,
+.vertical .header .chevron {
+  position: relative;
+  z-index: 10;
+}
+
+.topbar-right {
+  text-align: center;
+}
+
+.user-box {
+  text-align: center;
+}

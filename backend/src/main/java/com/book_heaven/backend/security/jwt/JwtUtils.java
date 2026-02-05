@@ -46,8 +46,8 @@ public class JwtUtils {
                 .path("/api")
                 .maxAge(Duration.ofMillis(jwtExpirationMs))
                 .httpOnly(true)
-                .secure(true)
-                .sameSite("Strict")
+                .secure(false)
+                .sameSite("Lax")
                 .build();
     }
 
@@ -56,8 +56,8 @@ public class JwtUtils {
                 .path("/api")
                 .maxAge(Duration.ZERO)
                 .httpOnly(true)
-                .secure(true)
-                .sameSite("Strict")
+                .secure(false)
+                .sameSite("Lax")
                 .build();
     }
 

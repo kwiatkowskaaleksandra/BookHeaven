@@ -63,7 +63,8 @@ public class AuthenticateServiceImpl implements AuthenticateService {
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
-                roles
+                roles,
+                jwt
         );
 
         log.info("The user {} has logged in.", authentication.getName());
@@ -73,6 +74,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
     @Override
     public List<ResponseCookie> logout() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
         refreshTokenService.deleteByUsername(Objects.requireNonNull(authentication).getName());
         log.info("The user {} has logged out.", authentication.getName());
 
@@ -84,6 +86,7 @@ public class AuthenticateServiceImpl implements AuthenticateService {
 
     @Override
     public void addNewUser(SignUpRequest signUpRequest) {
+        System.out.println(signUpRequest);
         passwordValidator.passwordChecking(signUpRequest.password(), signUpRequest.repeatedPassword());
         userService.checkUserData(signUpRequest.username(), signUpRequest.email());
         userService.saveNewUser(mapSignUpRequestToUser(signUpRequest));
@@ -98,10 +101,8 @@ public class AuthenticateServiceImpl implements AuthenticateService {
         user.setEmail(signUpRequest.email());
         //todo jak dodam maile to tu trzeba zmienić
         user.setActivity(true);
-        //todo te role tez zeby nie byly na stale
-Set<String> roles = new HashSet<>();
-roles.add("mod");
-        user.setRoles(assignRolesToUser(roles));
+
+        user.setRoles(assignRolesToUser(signUpRequest.roles()));
 
         log.info("New user created: {}", user);
 

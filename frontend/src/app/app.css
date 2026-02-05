@@ -1,0 +1,30 @@
+.layout{
+  --sidebar-width: 60px;
+  --topbar-height: 56px;
+}
+
+.layout.expanded{
+  --sidebar-width: 150px;
+}
+
+.content{
+  margin-left: 52px;
+  padding-top: 56px;
+  transition: 0.3s;
+  min-height: 100vh;
+  margin-right: -10px;
+}
+
+.content.sidebarExpanded {
+  margin-left: 142px;
+}
+
+.page {
+  margin-left: var(--sidebar-width);
+  padding-top: var(--topbar-height);
+  transition: margin-left 0.3s;
+  min-height: 100vh;
+
+  padding-left: 16px;
+  padding-right: 16px;
+}

@@ -1,6 +1,6 @@
-package com.book_heaven.backend.BookGenre;
+package com.book_heaven.backend.bookGenre;
 
-import com.book_heaven.backend.BookGenre.dto.BookGenreDto;
+import com.book_heaven.backend.bookGenre.dto.BookGenreDto;
 import com.book_heaven.backend.exception.BookException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,0 +1,43 @@
+{
+  "MENU": {
+    "HOME": "Home",
+    "HELLO": "Hello",
+    "LOGOUT": "Log out"
+  },
+  "LOGIN-PAGE": {
+    "LOGIN": "Log in",
+    "USERNAME": "Username",
+    "INCORRECT_USERNAME": "Incorrect username.",
+    "ENTER_A_VALID_USERNAME": "Please enter a valid username.",
+    "PASSWORD": "Password",
+    "INCORRECT_PASSWORD": "Incorrect password.",
+    "ENTER_THE_CORRECT_PASSWORD": "Please enter the correct password.",
+    "FORGOT_YOUR_PASSWORD": "Forgot your password ?",
+    "YOU_DO_NOT_HAVE_AN_ACCOUNT": "You do not have an account ?",
+    "JOIN_US": "Join us !"
+  },
+  "SIGNUP-PAGE": {
+    "SIGNUP": "Sign up",
+    "FIRSTNAME": "Firstname",
+    "LASTNAME": "Lastname",
+    "EMAIL": "E-mail",
+    "REPEATED_PASSWORD": "Repeated password",
+    "INCORRECTLY_COMPLETED_DATA": "Incorrectly completed data"
+  },
+  "ERROR": {
+    "INCORRECT_LOGIN_OR_PASSWORD": "Incorrect login or password.",
+    "NO_CONNECTION_TO_THE_SERVER": "No connection to the server.",
+    "AN_UNEXPECTED_ERROR_HAS_OCCURRED": "An unexpected error has occurred.",
+    "AN_ERROR_HAS_OCCURRED": "An error has occurred",
+    "PASSWORD_PROVIDED_ARE_DIFFERENT": "The passwords provided are different.",
+    "PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_UPPERCASE_LETTER": "The password must contain at least one uppercase letter",
+    "PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_LOWERCASE_LETTER": "The password must contain at least one lowercase letter.",
+    "PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_NUMBER": "The password must contain at least one number.",
+    "PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_SPECIAL_CHARACTER": "The password must contain at least one special character.",
+    "PASSWORD_MIN_LENGTH": "The password you entered is too short. It must be at least 10 characters long.",
+    "EMAIL_ALREADY_EXISTS": "A user with the specified email address already exists.",
+    "USERNAME_ALREADY_EXISTS": "A user with the specified username already exists.",
+    "EMAIL_IS_INCORRECTLY_FORMATTED": "The email address is formatted incorrectly."
+
+  }
+}

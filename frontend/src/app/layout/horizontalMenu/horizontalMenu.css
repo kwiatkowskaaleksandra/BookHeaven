@@ -1,0 +1,51 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 60px;
+  width: calc(100% - 60px);
+  height: 120px;
+  z-index: 1000;
+  transition: left 0.3s, width 0.3s;
+  display: block;
+}
+
+:host(.sidebarExpanded) {
+  left: 150px;
+  width: calc(100% - 150px);
+}
+
+.topbar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+  background: white;
+  color: #fff;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-toggle {
+  color: #fff;
+  text-decoration: none;
+  padding: 0;
+}
+
+.topbar-logo {
+  color: #fff;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.logo-img {
+  height: 100px;
+  width: auto;
+  display: block;
+}
+

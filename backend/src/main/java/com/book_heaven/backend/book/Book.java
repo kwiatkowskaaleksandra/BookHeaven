@@ -1,6 +1,6 @@
 package com.book_heaven.backend.book;
 
-import com.book_heaven.backend.BookGenre.BookGenre;
+import com.book_heaven.backend.bookGenre.BookGenre;
 import com.book_heaven.backend.author.Author;
 import com.book_heaven.backend.publishingHouse.PublishingHouse;
 import jakarta.persistence.*;

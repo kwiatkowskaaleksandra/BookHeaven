@@ -1,0 +1,42 @@
+{
+  "MENU": {
+    "HOME": "Strona główna",
+    "HELLO": "Witaj",
+    "LOGOUT": "Wyloguj sie"
+  },
+  "LOGIN-PAGE": {
+    "LOGIN": "Zaloguj się",
+    "USERNAME": "Nazwa użytkownika",
+    "INCORRECT_USERNAME": "Błędna nazwa użytkownika.",
+    "ENTER_A_VALID_USERNAME": "Wprowadz poprawną nazwę użytkownika.",
+    "PASSWORD": "Hasło",
+    "INCORRECT_PASSWORD": "Błędne hasło.",
+    "ENTER_THE_CORRECT_PASSWORD": "Wprowadź poprawne hasło.",
+    "FORGOT_YOUR_PASSWORD": "Zapomniałeś hasła ?",
+    "YOU_DO_NOT_HAVE_AN_ACCOUNT": "Nie masz konta ?",
+    "JOIN_US": "Dołącz do Nas !"
+  },
+  "SIGNUP-PAGE": {
+    "SIGNUP": "Zarejestruj się",
+    "FIRSTNAME": "Imię",
+    "LASTNAME": "Nazwisko",
+    "EMAIL": "E-mail",
+    "REPEATED_PASSWORD": "Powtórz hasło",
+    "INCORRECTLY_COMPLETED_DATA": "Błędnie uzupełnione dane"
+  },
+  "ERROR": {
+    "INCORRECT_LOGIN_OR_PASSWORD": "Nieprawidłowy login lub hasło.",
+    "NO_CONNECTION_TO_THE_SERVER": "Brak połączenia z serwerem.",
+    "AN_UNEXPECTED_ERROR_HAS_OCCURRED": "Wystąpił nieoczekiwany błąd.",
+    "AN_ERROR_HAS_OCCURRED": "Wystąpił błąd",
+    "PASSWORD_PROVIDED_ARE_DIFFERENT": "Podane hasła różnią się.",
+    "PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_UPPERCASE_LETTER": "Hasło powinno zawierać co najmniej jedną dużą literę",
+    "PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_LOWERCASE_LETTER": "Hasło powinno zawierać co najmniej jedną małą literę.",
+    "PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_NUMBER": "Hasło powinno zawierać co najmniej jedną cyfrę.",
+    "PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_SPECIAL_CHARACTER": "Hasło powinno zawierać co najmniej jeden znak specjalny.",
+    "PASSWORD_MIN_LENGHT": "Podane hasło jest zbyt krótkie. Powinno składać się z co najmniej 10 znaków.",
+    "EMAIL_ALREADY_EXISTS": "Użytkownik o podanym adresie email już istnieje.",
+    "USERNAME_ALREADY_EXISTS": "Użytkownik o podanej nazwie użytkownika już istnieje.",
+    "EMAIL_IS_INCORRECTLY_FORMATTED": "Adres email jest niepoprawnie sformatowany."
+  }
+}

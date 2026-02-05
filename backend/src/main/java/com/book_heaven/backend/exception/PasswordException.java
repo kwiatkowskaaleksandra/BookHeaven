@@ -1,11 +1,9 @@
 package com.book_heaven.backend.exception;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.CONFLICT)
-public class PasswordException extends RuntimeException {
-    public PasswordException(final String message) {
-        super(message);
+public class PasswordException extends ApiException {
+    public PasswordException(String message) {
+        super(HttpStatus.CONFLICT, message);
     }
 }

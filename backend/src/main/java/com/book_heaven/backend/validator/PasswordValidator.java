@@ -12,8 +12,9 @@ public class PasswordValidator {
 
     public void passwordChecking(String password, String repeatedPassword) {
         if (!password.equals(repeatedPassword)) {
+            System.out.println(password+" "+repeatedPassword);
             log.error("The passwords provided are different.");
-            throw new PasswordException("passwordProvidedAreDifferent");
+            throw new PasswordException("PASSWORD_PROVIDED_ARE_DIFFERENT");
         }
         validatePasswordStrength(password);
     }
@@ -21,22 +22,23 @@ public class PasswordValidator {
     private void validatePasswordStrength(String password) {
         if (password.length() < PASSWORD_MIN_LENGTH) {
             log.error("The password must be composed of at least 10 characters.");
+            throw new PasswordException("PASSWORD_MIN_LENGTH");
         }
         if (!password.matches("(.*)[A-Z](.*)")) {
             log.error("The password must contain at least one uppercase letter");
-            throw new PasswordException("passwordMustContainAtLeastOneUppercaseLatter");
+            throw new PasswordException("PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_UPPERCASE_LETTER");
         }
         if (!password.matches("(.*)[a-z](.*)")) {
             log.error("The password must contain at least one lowercase letter.");
-            throw new PasswordException("passwordMustContainAtLeastOneLowercaseLetter");
+            throw new PasswordException("PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_LOWERCASE_LETTER");
         }
         if (!password.matches("(.*)[0-9](.*)")) {
             log.error("The password must contain at least one number.");
-            throw new PasswordException("passwordMustContainAtLeastOneNumber");
+            throw new PasswordException("PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_NUMBER");
         }
         if (!password.matches("(.*)[!@,().%&#$^-](.*)")) {
             log.error("The password must contain at least one special character.");
-            throw new PasswordException("passwordMustContainAtLeastOneSpecialCharacter");
+            throw new PasswordException("PASSWORD_MUST_CONTAIN_AT_LEAST_ONE_SPECIAL_CHARACTER");
         }
     }
 }

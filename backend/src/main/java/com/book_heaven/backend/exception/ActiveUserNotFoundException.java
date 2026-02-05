@@ -2,11 +2,9 @@ package com.book_heaven.backend.exception;
 
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.CONFLICT)
-public class ActiveUserNotFoundException extends RuntimeException {
+public class ActiveUserNotFoundException extends ApiException {
     public ActiveUserNotFoundException(String message) {
-        super(message);
+        super(HttpStatus.CONFLICT, message);
     }
 }

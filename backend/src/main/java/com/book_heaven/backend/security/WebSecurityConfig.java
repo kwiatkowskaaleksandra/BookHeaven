@@ -62,14 +62,14 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity, JwtUtils jwtUtils) {
         httpSecurity.csrf(csrf ->
-                        csrf.ignoringRequestMatchers("/api/auth/signup", "/api/auth/login", "/api/google/books/**", "/api/book/**")
+                        csrf.ignoringRequestMatchers("/api/auth/signup", "/api/auth/login", "/api/google/books/**", "/api/book/**", "/api/refreshToken/**", "/api/user/**", "/api/auth/logout")
                                 .csrfTokenRepository(csrfTokenRepository()))
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/api/auth/signout").authenticated()
-                        .requestMatchers("/api/auth/**", "/error", "/api/book/get/**","/api/google/books/**").permitAll()
+                        .requestMatchers("/api/auth/logout").authenticated()
+                        .requestMatchers("/api/auth/**", "/error", "/api/book/get/**","/api/google/books/**", "/api/refreshToken").permitAll()
                         .requestMatchers("/api/user/**").hasRole("USER")
                         .requestMatchers("/api/book/manage/**").hasRole("MODERATOR")
                         .anyRequest().authenticated()
@@ -81,6 +81,7 @@ public class WebSecurityConfig {
                                 .httpStrictTransportSecurity(Customizer.withDefaults())
                                 .frameOptions(Customizer.withDefaults()))
                 .cors(Customizer.withDefaults());
+
 
         httpSecurity.authenticationProvider(authenticationProvider());
         httpSecurity.addFilterBefore(authTokenFilter(jwtUtils, userDetailsService), UsernamePasswordAuthenticationFilter.class);
