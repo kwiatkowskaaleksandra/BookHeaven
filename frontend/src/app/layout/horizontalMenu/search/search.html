@@ -1,0 +1,53 @@
+<button mat-icon-button type="button" (click)="toggle()" aria-label="Search">
+  <ng-icon class="search-icon" name="hugeSearching"></ng-icon>
+</button>
+
+<div class="search-panel" [class.open]="expanded()">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="header">
+
+      <span class="spacer"></span>
+
+      <button mat-icon-button type="button" (click)="reset()" aria-label="Reset" class="reset-btn">
+        <ng-icon name="hugeReload"></ng-icon>
+      </button>
+
+      <button mat-icon-button type="button" (click)="close()" aria-label="Close" class="close-btn">
+        <ng-icon name="hugeMultiplicationSign"></ng-icon>
+      </button>
+    </div>
+
+    <div class="grid">
+      <mat-form-field appearance="outline">
+        <mat-label>{{'SEARCH.AUTHOR' | translate}}</mat-label>
+        <input matInput formControlName="author" class="input-form-search"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{'SEARCH.TITLE' | translate}}</mat-label>
+        <input matInput formControlName="title" class="input-form-search"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{'SEARCH.PUBLISHING_HOUSE' | translate}}</mat-label>
+        <input matInput formControlName="publisher" class="input-form-search"/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{'SEARCH.GENRE' | translate}}</mat-label>
+        <mat-select formControlName="genre" class="input-form-search-selected">
+          <mat-option [value]="null">—</mat-option>
+          @for (g of genres; track g.code) {
+            <mat-option [value]="g.code" class="input-form-search">{{ g.namePL }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="actions">
+      <button mat-flat-button color="primary" type="submit">
+        {{'SEARCH.SEARCH' | translate}}
+      </button>
+    </div>
+  </form>
+</div>

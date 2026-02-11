@@ -1,0 +1,8 @@
+.mat-mdc-menu-item {
+  background-color: #fff !important;
+}
+
+.mat-mdc-menu-item:hover {
+  color: white;
+  background: linear-gradient(92deg, #796952, #DDBF92);
+}

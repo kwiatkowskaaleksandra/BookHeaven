@@ -1,5 +1,7 @@
 package com.book_heaven.backend.bookGenre;
 
+import com.book_heaven.backend.bookGenre.bookGenreGroup.BookGenreGroup;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,4 +28,8 @@ public class BookGenre {
     private String nameEN;
 
     private Boolean active;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private BookGenreGroup bookGenreGroup;
 }

@@ -2,7 +2,7 @@ import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {AsyncPipe, NgClass} from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import {LangSwitchComponent} from './LangSwitchComponent';
+import {LangSwitchComponent} from './lang-switch-component';
 import {AuthService} from '../../auth/login/auth-service';
 
 @Component({
@@ -19,7 +19,7 @@ import {AuthService} from '../../auth/login/auth-service';
   standalone: true,
   styleUrls: ['./verticalMenu.css']
 })
-export class VerticalMenuComponent {
+export class VerticaMenuComponent {
   private auth = inject(AuthService);
 
   @Input() isExpanded: boolean = false;

@@ -8,6 +8,13 @@ export const API_PATHS = {
   users: {
     aboutUser: '/api/user/aboutUser',
   },
+  booksGenreGroup: {
+    getAll: '/api/bookGenreGroup/getAll',
+  },
+  bookGenre: {
+    getAll: '/api/bookGenre/getAllBookGenre',
+    getAllGenreAndGroups: '/api/bookGenre/getAllBookGenreAndGroups'
+  },
   products: {
     list: '/api/products',
   },

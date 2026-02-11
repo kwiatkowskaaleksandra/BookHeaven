@@ -1,15 +1,19 @@
 import {Component, EventEmitter, HostBinding, Input, Output} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {NgOptimizedImage} from '@angular/common';
+import {NestedBookCategories} from './nested-book-categories/nested-book-categories';
+import {Search} from './search/search';
 
 @Component({
   selector: 'horizontal-menu',
-  templateUrl: './horizontalMenu.html',
+  templateUrl: './horizontal-menu.html',
   standalone: true,
-  styleUrls: ['./horizontalMenu.css'],
+  styleUrls: ['./horizontal-menu.css'],
   imports: [
     RouterLink,
     NgOptimizedImage,
+    NestedBookCategories,
+    Search,
   ],
 })
 export class HorizontalMenuComponent {

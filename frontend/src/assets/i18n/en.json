@@ -38,6 +38,12 @@
     "EMAIL_ALREADY_EXISTS": "A user with the specified email address already exists.",
     "USERNAME_ALREADY_EXISTS": "A user with the specified username already exists.",
     "EMAIL_IS_INCORRECTLY_FORMATTED": "The email address is formatted incorrectly."
-
+  },
+  "SEARCH": {
+    "AUTHOR": "Author",
+    "TITLE": "Title",
+    "PUBLISHING_HOUSE": "Publishing house",
+    "GENRE": "Genre",
+    "SEARCH": "Search"
   }
 }

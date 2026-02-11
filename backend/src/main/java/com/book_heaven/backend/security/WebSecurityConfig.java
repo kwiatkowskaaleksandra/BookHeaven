@@ -4,7 +4,9 @@ import com.book_heaven.backend.security.jwt.AuthEntryPointJwt;
 import com.book_heaven.backend.security.jwt.AuthTokenFilter;
 import com.book_heaven.backend.security.jwt.JwtUtils;
 import com.book_heaven.backend.security.service.UserDetailsServiceImpl;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -23,6 +25,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import java.time.Duration;
 
 @Configuration
 @EnableWebSecurity
@@ -60,16 +64,26 @@ public class WebSecurityConfig {
     }
 
     @Bean
+    public CaffeineCacheManager cacheManager() {
+        CaffeineCacheManager cm = new CaffeineCacheManager("genre-groups");
+        cm.setCaffeine(Caffeine.newBuilder()
+                .expireAfterWrite(Duration.ofMinutes(5))
+                .maximumSize(100)
+        );
+        return cm;
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity, JwtUtils jwtUtils) {
         httpSecurity.csrf(csrf ->
-                        csrf.ignoringRequestMatchers("/api/auth/signup", "/api/auth/login", "/api/google/books/**", "/api/book/**", "/api/refreshToken/**", "/api/user/**", "/api/auth/logout")
+                        csrf.ignoringRequestMatchers("/api/auth/signup", "/api/auth/login", "/api/google/books/**", "/api/book/**", "/api/refreshToken/**", "/api/user/**", "/api/auth/logout", "/api/bookGenreGroup/**", "/api/bookGenre/**")
                                 .csrfTokenRepository(csrfTokenRepository()))
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/auth/logout").authenticated()
-                        .requestMatchers("/api/auth/**", "/error", "/api/book/get/**","/api/google/books/**", "/api/refreshToken").permitAll()
+                        .requestMatchers("/api/auth/**", "/error", "/api/book/get/**","/api/google/books/**", "/api/refreshToken", "/api/bookGenreGroup/**", "/api/bookGenre/**").permitAll()
                         .requestMatchers("/api/user/**").hasRole("USER")
                         .requestMatchers("/api/book/manage/**").hasRole("MODERATOR")
                         .anyRequest().authenticated()

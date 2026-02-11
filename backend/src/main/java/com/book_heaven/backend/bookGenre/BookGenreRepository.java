@@ -8,4 +8,5 @@ import java.util.Optional;
 @Repository
 public interface BookGenreRepository extends JpaRepository<BookGenre, Long> {
     Optional<BookGenre> findByCode(String code);
+
 }

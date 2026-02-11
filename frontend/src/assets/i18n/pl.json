@@ -38,5 +38,12 @@
     "EMAIL_ALREADY_EXISTS": "Użytkownik o podanym adresie email już istnieje.",
     "USERNAME_ALREADY_EXISTS": "Użytkownik o podanej nazwie użytkownika już istnieje.",
     "EMAIL_IS_INCORRECTLY_FORMATTED": "Adres email jest niepoprawnie sformatowany."
+  },
+  "SEARCH": {
+    "AUTHOR": "Autor",
+    "TITLE": "Tytuł",
+    "PUBLISHING_HOUSE": "Wydawnictwo",
+    "GENRE": "Gatunek",
+    "SEARCH": "Szukaj"
   }
 }

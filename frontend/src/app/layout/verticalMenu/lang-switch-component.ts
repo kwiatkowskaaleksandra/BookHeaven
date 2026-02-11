@@ -28,5 +28,6 @@ export class LangSwitchComponent {
     this.translate.use(lang);
     localStorage.setItem('lang', lang);
     document.documentElement.lang = lang;
+    window.location.reload()
   }
 }

@@ -1,0 +1,29 @@
+<div class="categories-menu">
+<button matButton [matMenuTriggerFor]="books"><ng-icon name="hugeMenuCircle"/></button>
+<mat-menu #books="matMenu" >
+  @for(group of bookGenreGroup; track group.code) {
+    <button mat-menu-item [matMenuTriggerFor]="genresMenu" [matMenuTriggerData]="{genres: group.bookGenreSet}">
+      @if (savedLang === 'pl') {
+        {{group.namePL}}
+      } @else {
+        {{group.nameEN}}
+      }
+      </button>
+  }
+</mat-menu>
+
+<mat-menu #genresMenu="matMenu">
+  <ng-template matMenuContent let-genres="genres">
+    @for (g of genres; track g.code) {
+      <button mat-menu-item>
+        @if (savedLang === 'pl') {
+          {{g.namePL}}
+        } @else {
+          {{g.nameEN}}
+        }
+      </button>
+    }
+  </ng-template>
+</mat-menu>
+
+</div>
