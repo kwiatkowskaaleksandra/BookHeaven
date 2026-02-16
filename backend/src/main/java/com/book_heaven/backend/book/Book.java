@@ -1,6 +1,6 @@
 package com.book_heaven.backend.book;
 
-import com.book_heaven.backend.bookGenre.BookGenre;
+import com.book_heaven.backend.book.bookGenre.BookGenre;
 import com.book_heaven.backend.author.Author;
 import com.book_heaven.backend.publishingHouse.PublishingHouse;
 import jakarta.persistence.*;
@@ -49,7 +49,7 @@ public class Book {
 
     private Integer pageCount;
 
-    @Column(precision = 12, scale = 2, nullable = false) private BigDecimal price;
+    @Column(precision = 12, scale = 2) private BigDecimal price;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "book_genres",
@@ -68,5 +68,8 @@ public class Book {
 
     @Column(length = 13, unique = true)
     private String isbn13;
+
+    @Column(length = 10, unique = true)
+    private String isbn10;
 
 }

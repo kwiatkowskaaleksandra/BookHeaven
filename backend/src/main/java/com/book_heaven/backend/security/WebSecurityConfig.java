@@ -83,7 +83,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/auth/logout").authenticated()
-                        .requestMatchers("/api/auth/**", "/error", "/api/book/get/**","/api/google/books/**", "/api/refreshToken", "/api/bookGenreGroup/**", "/api/bookGenre/**").permitAll()
+                        .requestMatchers("/api/auth/**", "/error", "/api/book/**","/api/google/books/**", "/api/refreshToken", "/api/bookGenreGroup/**", "/api/bookGenre/**").permitAll()
                         .requestMatchers("/api/user/**").hasRole("USER")
                         .requestMatchers("/api/book/manage/**").hasRole("MODERATOR")
                         .anyRequest().authenticated()

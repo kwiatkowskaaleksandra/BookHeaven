@@ -1,6 +1,6 @@
 package com.book_heaven.backend.book;
 
-import com.book_heaven.backend.book.dto.BookDto;
+import com.book_heaven.backend.book.dto.GoogleVolumesResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ public class BookController {
     private final BookService bookService;
 
     @PostMapping("/manage/addBook")
-    public ResponseEntity<?> addNewBook(@Valid @RequestBody BookDto bookDto) {
+    public ResponseEntity<?> addNewBook(@Valid @RequestBody GoogleVolumesResponse bookDto) {
         bookService.addBook(bookDto);
 
         return ResponseEntity.ok().body("New book has been added.");
@@ -29,5 +29,10 @@ public class BookController {
     @GetMapping("/get/getBooksByAuthor/{authorId}")
     public ResponseEntity<?> getBookByAuthor(@PathVariable Long authorId) {
         return ResponseEntity.ok(bookService.getBooksByAuthor(authorId));
+    }
+
+    @PostMapping("/import/{isbn}")
+    public Book importByIsbn(@PathVariable String isbn) {
+        return bookService.importByIsbn(isbn);
     }
 }

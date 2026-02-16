@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {BookGenre, BookGenreGroup} from '../interfaces';
+import {BookGenre} from '../interfaces';
 import {environment} from '../../../environments/environments';
 import {API_PATHS} from '../../api/api.paths';
 

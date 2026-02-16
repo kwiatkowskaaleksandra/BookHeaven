@@ -1,6 +1,6 @@
-package com.book_heaven.backend.bookGenre.bookGenreGroup;
+package com.book_heaven.backend.book.bookGenre.bookGenreGroup;
 
-import com.book_heaven.backend.bookGenre.BookGenre;
+import com.book_heaven.backend.book.bookGenre.BookGenre;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

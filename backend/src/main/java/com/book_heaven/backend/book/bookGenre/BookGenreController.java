@@ -1,6 +1,6 @@
-package com.book_heaven.backend.bookGenre;
+package com.book_heaven.backend.book.bookGenre;
 
-import com.book_heaven.backend.bookGenre.bookGenreGroup.BookGenreGroup;
+import com.book_heaven.backend.book.bookGenre.bookGenreGroup.BookGenreGroup;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

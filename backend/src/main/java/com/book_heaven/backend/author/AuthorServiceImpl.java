@@ -11,8 +11,8 @@ public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
 
     @Override
-    public Author findByName(String name) {
-        return authorRepository.findByName(name).orElseGet(() -> addNewAuthor(name));
+    public Author findByNameIgnoreCase(String name) {
+        return authorRepository.findByNameIgnoreCase(name).orElseGet(() -> addNewAuthor(name));
     }
 
     @Override

@@ -1,6 +1,6 @@
-package com.book_heaven.backend.bookGenre;
+package com.book_heaven.backend.book.bookGenre;
 
-import com.book_heaven.backend.bookGenre.bookGenreGroup.BookGenreGroup;
+import com.book_heaven.backend.book.bookGenre.bookGenreGroup.BookGenreGroup;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;

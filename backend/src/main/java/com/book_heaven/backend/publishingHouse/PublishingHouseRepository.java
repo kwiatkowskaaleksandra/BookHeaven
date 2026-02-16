@@ -7,5 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface PublishingHouseRepository extends JpaRepository<PublishingHouse, Long> {
-    Optional<PublishingHouse> findByName(String name);
+    Optional<PublishingHouse> findByNameIgnoreCase(String name);
 }

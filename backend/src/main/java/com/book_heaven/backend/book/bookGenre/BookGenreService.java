@@ -1,7 +1,7 @@
-package com.book_heaven.backend.bookGenre;
+package com.book_heaven.backend.book.bookGenre;
 
-import com.book_heaven.backend.bookGenre.bookGenreGroup.BookGenreGroup;
-import com.book_heaven.backend.bookGenre.dto.BookGenreDto;
+import com.book_heaven.backend.book.bookGenre.bookGenreGroup.BookGenreGroup;
+import com.book_heaven.backend.book.bookGenre.dto.BookGenreDto;
 
 import java.util.List;
 import java.util.Map;

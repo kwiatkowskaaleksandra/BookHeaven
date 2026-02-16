@@ -12,8 +12,8 @@ public class PublishingHouseServiceImpl implements PublishingHouseService{
     private final PublishingHouseRepository publishingHouseRepository;
 
     @Override
-    public PublishingHouse findByName(String name) {
-        return publishingHouseRepository.findByName(name).orElseGet(() -> addNewPublishingHouse(name));
+    public PublishingHouse findByNameIgnoreCase(String name) {
+        return publishingHouseRepository.findByNameIgnoreCase(name).orElseGet(() -> addNewPublishingHouse(name));
     }
 
     @Override

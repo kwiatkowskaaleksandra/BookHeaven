@@ -1,4 +1,4 @@
-package com.book_heaven.backend.bookGenre;
+package com.book_heaven.backend.book.bookGenre;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

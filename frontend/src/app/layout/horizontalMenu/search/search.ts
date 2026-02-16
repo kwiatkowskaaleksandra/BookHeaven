@@ -1,11 +1,10 @@
-import {Component, HostListener, inject, OnInit, signal} from '@angular/core';
+import {Component, HostListener, inject, signal} from '@angular/core';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {hugeSearching, hugeReload, hugeMultiplicationSign} from '@ng-icons/huge-icons';
 import {MatButton, MatIconButton} from '@angular/material/button';
 import {NonNullableFormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
 import {MatOption, MatSelect} from '@angular/material/select';
-import {LangSwitchComponent} from '../../verticalMenu/lang-switch-component';
 import {TranslatePipe} from '@ngx-translate/core';
 
 
