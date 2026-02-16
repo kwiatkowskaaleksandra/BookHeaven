@@ -18,8 +18,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
-import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -76,7 +76,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity, JwtUtils jwtUtils) {
         httpSecurity.csrf(csrf ->
-                        csrf.ignoringRequestMatchers("/api/auth/signup", "/api/auth/login", "/api/google/books/**", "/api/book/**", "/api/refreshToken/**", "/api/user/**", "/api/auth/logout", "/api/bookGenreGroup/**", "/api/bookGenre/**")
+                        csrf.ignoringRequestMatchers("/api/auth/signup", "/api/auth/login", "/api/google/books/**", "/api/book/**", "/api/refreshToken/**", "/api/bookGenreGroup/**", "/api/bookGenre/**")
                                 .csrfTokenRepository(csrfTokenRepository()))
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(unauthorizedHandler))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -104,8 +104,10 @@ public class WebSecurityConfig {
     }
 
     private CsrfTokenRepository csrfTokenRepository() {
-        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        CookieCsrfTokenRepository repository = CookieCsrfTokenRepository.withHttpOnlyFalse();
+        repository.setCookieName("X-CSRF-TOKEN");
         repository.setHeaderName("X-CSRF-TOKEN");
+        repository.setCookiePath("/");
         return repository;
     }
 }

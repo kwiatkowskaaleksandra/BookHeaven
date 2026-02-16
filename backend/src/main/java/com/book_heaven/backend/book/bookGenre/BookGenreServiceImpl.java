@@ -1,7 +1,6 @@
 package com.book_heaven.backend.book.bookGenre;
 
 import com.book_heaven.backend.book.bookGenre.bookGenreGroup.BookGenreGroup;
-import com.book_heaven.backend.book.bookGenre.bookGenreGroup.BookGenreGroupService;
 import com.book_heaven.backend.book.bookGenre.dto.BookGenreDto;
 import com.book_heaven.backend.exception.BookException;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +17,6 @@ import java.util.Map;
 public class BookGenreServiceImpl implements BookGenreService {
 
     private final BookGenreRepository bookGenreRepository;
-    private final BookGenreGroupService bookGenreGroupService;
 
     @Override
     public BookGenre findByCode(String code) {

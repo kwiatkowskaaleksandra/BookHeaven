@@ -1,7 +1,6 @@
 package com.book_heaven.backend.book.dto;
 
 import lombok.Data;
-import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.util.List;
